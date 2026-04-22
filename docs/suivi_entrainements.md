@@ -1,0 +1,169 @@
+# Suivi Des Entrainements
+
+## Vue d'ensemble
+
+Ce document consolide les entrainements `ConvNeXt-Small` realises sur le projet,
+avec les tailles de datasets, les durees et les evolutions de nettoyage entre
+les versions.
+
+## Tableau comparatif
+
+| Metrique | `v1` | `v2` | `v3` | `v4` | `v5` | `v6` | `v7` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Classes | 4 | 5 | 12 | 12 | 12 | 12 | 12 |
+| Train | 376 | 1076 | 13256 | 19061 | 20382 | 31054 | 25962 |
+| Val | 78 | 228 | 2837 | 4081 | 4364 | 6604 | 5558 |
+| Test | 85 | 235 | 2850 | 4094 | 4378 | 6694 | 5576 |
+| Total images | 539 | 1539 | 18943 | 27236 | 29124 | 44352 | 37096 |
+| Duree approx. | `~6 min` | `~12 min 40 s` | `~36 min 54 s` | `~46 min 12 s` | `~48 min 15 s` | `~1 h 37 min` | `~1 h 13 min` |
+| Best Val Acc | `100.00%` | `99.56%` | `90.41%` | `90.27%` | `90.99%` | `89.22%` | `93.59%` |
+| Test Acc | `97.65%` | `97.87%` | `89.40%` | `91.11%` | `90.66%` | `88.95%` | `93.79%` |
+| `chardonneret_elegant` | `100.00%` | `100.00%` | `90.94%` | `90.19%` | `89.81%` | `89.18%` | `93.59%` |
+| `grive_musicienne` | `X` | `X` | `92.89%` | `89.10%` | `88.15%` | `89.93%` | `92.32%` |
+| `mesange_bleue` | `95.45%` | `86.36%` | `90.24%` | `83.62%` | `94.40%` | `86.83%` | `96.43%` |
+| `mesange_charbonniere` | `100.00%` | `95.45%` | `86.05%` | `91.96%` | `92.68%` | `87.85%` | `93.24%` |
+| `mesange_huppee` | `X` | `X` | `90.00%` | `92.56%` | `90.51%` | `85.05%` | `93.67%` |
+| `mesange_noire` | `X` | `X` | `86.51%` | `92.87%` | `92.24%` | `87.39%` | `91.84%` |
+| `mesange_nonnette` | `X` | `X` | `90.51%` | `90.51%` | `86.50%` | `87.77%` | `96.02%` |
+| `moineau_domestique` | `95.24%` | `95.24%` | `84.85%` | `92.09%` | `89.93%` | `87.83%` | `90.28%` |
+| `pic_epeiche` | `X` | `X` | `91.54%` | `92.31%` | `92.69%` | `93.69%` | `96.00%` |
+| `pinson_des_arbres` | `X` | `X` | `84.00%` | `92.20%` | `90.54%` | `86.74%` | `91.43%` |
+| `rougegorge_familier` | `X` | `100.00%` | `90.67%` | `90.00%` | `86.00%` | `94.23%` | `96.39%` |
+| `verdier_europe` | `X` | `X` | `90.87%` | `90.87%` | `84.65%` | `91.04%` | `94.83%` |
+| Commentaire | probleme simple | 5 classes | premier vrai multi-especes | meilleure ref avant tri fort | plus de donnees, gain non uniforme | plus gros dataset mais bruit fort | dataset nettoye, nouvelle meilleure ref |
+
+## Changements par version
+
+### `v1`
+
+- 4 classes :
+  `chardonneret_elegant`, `mesange_bleue`, `mesange_charbonniere`,
+  `moineau_domestique`
+- run de validation du pipeline d'entrainement
+
+### `v2`
+
+- ajout de `rougegorge_familier`
+- dataset encore tres simple et peu bruité
+
+### `v3`
+
+- passage a 12 classes
+- premier dataset representatif du projet mangeoire
+
+### `v4`
+
+- augmentation de volume par rapport a `v3`
+- devient la meilleure reference avant les grandes phases de tri
+
+### `v5`
+
+- poursuite de l'augmentation des donnees
+- score global legerement inferieur a `v4`
+
+### `v6`
+
+- dataset tres fortement grossi et homogeneise en volume
+- montre qu'ajouter de la quantite sans tri qualitatif ne suffit pas
+
+### `v7`
+
+- entrainement relance apres nettoyage du dataset avec le modele `v4`
+- tri applique avant le split :
+  - `multiple` via MegaDetector
+  - `autre_espece`
+  - `incertain`
+  - tri de confiance sur les classes de mesanges :
+    `90_moins`, `90_95`, racine `95+`
+- split genere dans `data/dataset_v7`
+- sortie ecrite dans `outputs/training/convnext_small_v7`
+
+## Focus sur le nettoyage ayant mene a `v7`
+
+Le dataset utilise pour `v7` n'est pas simplement une nouvelle collecte. Il
+vient d'un tri iteratif du dataset existant :
+
+1. passage MegaDetector sur les classes de mesanges, puis sur le reste, pour
+   isoler les images a cibles multiples dans `multiple`
+2. tri du dataset avec `convnext_small_v4` pour sortir :
+   - les images predites comme une autre espece dans `autre_espece`
+   - les cas ambigus dans `incertain`
+3. tri de confiance sur les mesanges pour separer :
+   - `90_moins`
+   - `90_95`
+   - racine conservee comme base `95+`
+4. nouvel entrainement sur les images laissees a la racine des classes
+
+## Resultat cle
+
+Le point important de `v7` est le suivant :
+
+- `v6` utilisait plus d'images mais un dataset plus bruité
+- `v7` utilise moins d'images, mais mieux selectionnees
+- le nettoyage a apporte un gain net de performance
+
+Comparaison directe :
+
+| Comparaison | Ecart test accuracy |
+| --- | ---: |
+| `v7` vs `v4` | `+2.68 pts` |
+| `v7` vs `v5` | `+3.13 pts` |
+| `v7` vs `v6` | `+4.84 pts` |
+
+## Detail `v7`
+
+- classes :
+  - `chardonneret_elegant`
+  - `grive_musicienne`
+  - `mesange_bleue`
+  - `mesange_charbonniere`
+  - `mesange_huppee`
+  - `mesange_noire`
+  - `mesange_nonnette`
+  - `moineau_domestique`
+  - `pic_epeiche`
+  - `pinson_des_arbres`
+  - `rougegorge_familier`
+  - `verdier_europe`
+- tailles :
+  - train : `25962`
+  - val : `5558`
+  - test : `5576`
+- duree cumulee des epoques :
+  - `4404.83 s`
+- duree pratique :
+  - environ `1 h 13 min`
+- resultats :
+  - `best_val_accuracy = 93.59%`
+  - `test_accuracy = 93.79%`
+
+## Fichiers de sortie
+
+- `v1` :
+  - `outputs/training/convnext_small_v1/best_model.pt`
+  - `outputs/training/convnext_small_v1/summary.json`
+  - `outputs/training/convnext_small_v1/history.json`
+- `v2` :
+  - `outputs/training/convnext_small_v2/best_model.pt`
+  - `outputs/training/convnext_small_v2/summary.json`
+  - `outputs/training/convnext_small_v2/history.json`
+- `v3` :
+  - `outputs/training/convnext_small_v3/best_model.pt`
+  - `outputs/training/convnext_small_v3/summary.json`
+  - `outputs/training/convnext_small_v3/history.json`
+- `v4` :
+  - `outputs/training/convnext_small_v4/best_model.pt`
+  - `outputs/training/convnext_small_v4/summary.json`
+  - `outputs/training/convnext_small_v4/history.json`
+- `v5` :
+  - `outputs/training/convnext_small_v5/best_model.pt`
+  - `outputs/training/convnext_small_v5/summary.json`
+  - `outputs/training/convnext_small_v5/history.json`
+- `v6` :
+  - `outputs/training/convnext_small_v6/best_model.pt`
+  - `outputs/training/convnext_small_v6/summary.json`
+  - `outputs/training/convnext_small_v6/history.json`
+- `v7` :
+  - `outputs/training/convnext_small_v7/best_model.pt`
+  - `outputs/training/convnext_small_v7/summary.json`
+  - `outputs/training/convnext_small_v7/history.json`
