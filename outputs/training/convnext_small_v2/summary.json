@@ -1,0 +1,47 @@
+{
+  "model": "convnext_small",
+  "num_classes": 5,
+  "class_names": [
+    "chardonneret_elegant",
+    "mesange_bleue",
+    "mesange_charbonniere",
+    "moineau_domestique",
+    "rougegorge_familier"
+  ],
+  "device": "cuda",
+  "best_val_accuracy": 0.9956140350877193,
+  "test_loss": 0.0730559917446876,
+  "test_accuracy": 0.9787234042553191,
+  "epochs": 10,
+  "batch_size": 16,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0001,
+  "freeze_backbone": false,
+  "per_class_test": {
+    "chardonneret_elegant": {
+      "correct": 20,
+      "total": 20,
+      "accuracy": 1.0
+    },
+    "mesange_bleue": {
+      "correct": 19,
+      "total": 22,
+      "accuracy": 0.8636363636363636
+    },
+    "mesange_charbonniere": {
+      "correct": 21,
+      "total": 22,
+      "accuracy": 0.9545454545454546
+    },
+    "moineau_domestique": {
+      "correct": 20,
+      "total": 21,
+      "accuracy": 0.9523809523809523
+    },
+    "rougegorge_familier": {
+      "correct": 150,
+      "total": 150,
+      "accuracy": 1.0
+    }
+  }
+}
