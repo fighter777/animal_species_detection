@@ -8,29 +8,30 @@ les versions.
 
 ## Tableau comparatif
 
-| Metrique | `v1` | `v2` | `v3` | `v4` | `v5` | `v6` | `v7` |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Classes | 4 | 5 | 12 | 12 | 12 | 12 | 12 |
-| Train | 376 | 1076 | 13256 | 19061 | 20382 | 31054 | 25962 |
-| Val | 78 | 228 | 2837 | 4081 | 4364 | 6604 | 5558 |
-| Test | 85 | 235 | 2850 | 4094 | 4378 | 6694 | 5576 |
-| Total images | 539 | 1539 | 18943 | 27236 | 29124 | 44352 | 37096 |
-| Duree approx. | `~6 min` | `~12 min 40 s` | `~36 min 54 s` | `~46 min 12 s` | `~48 min 15 s` | `~1 h 37 min` | `~1 h 13 min` |
-| Best Val Acc | `100.00%` | `99.56%` | `90.41%` | `90.27%` | `90.99%` | `89.22%` | `93.59%` |
-| Test Acc | `97.65%` | `97.87%` | `89.40%` | `91.11%` | `90.66%` | `88.95%` | `93.79%` |
-| `chardonneret_elegant` | `100.00%` | `100.00%` | `90.94%` | `90.19%` | `89.81%` | `89.18%` | `93.59%` |
-| `grive_musicienne` | `X` | `X` | `92.89%` | `89.10%` | `88.15%` | `89.93%` | `92.32%` |
-| `mesange_bleue` | `95.45%` | `86.36%` | `90.24%` | `83.62%` | `94.40%` | `86.83%` | `96.43%` |
-| `mesange_charbonniere` | `100.00%` | `95.45%` | `86.05%` | `91.96%` | `92.68%` | `87.85%` | `93.24%` |
-| `mesange_huppee` | `X` | `X` | `90.00%` | `92.56%` | `90.51%` | `85.05%` | `93.67%` |
-| `mesange_noire` | `X` | `X` | `86.51%` | `92.87%` | `92.24%` | `87.39%` | `91.84%` |
-| `mesange_nonnette` | `X` | `X` | `90.51%` | `90.51%` | `86.50%` | `87.77%` | `96.02%` |
-| `moineau_domestique` | `95.24%` | `95.24%` | `84.85%` | `92.09%` | `89.93%` | `87.83%` | `90.28%` |
-| `pic_epeiche` | `X` | `X` | `91.54%` | `92.31%` | `92.69%` | `93.69%` | `96.00%` |
-| `pinson_des_arbres` | `X` | `X` | `84.00%` | `92.20%` | `90.54%` | `86.74%` | `91.43%` |
-| `rougegorge_familier` | `X` | `100.00%` | `90.67%` | `90.00%` | `86.00%` | `94.23%` | `96.39%` |
-| `verdier_europe` | `X` | `X` | `90.87%` | `90.87%` | `84.65%` | `91.04%` | `94.83%` |
-| Commentaire | probleme simple | 5 classes | premier vrai multi-especes | meilleure ref avant tri fort | plus de donnees, gain non uniforme | plus gros dataset mais bruit fort | dataset nettoye, nouvelle meilleure ref |
+| Metrique | `v1` | `v2` | `v3` | `v4` | `v5` | `v6` | `v7` | `v8` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Classes | 4 | 5 | 12 | 12 | 12 | 12 | 12 | 13 |
+| Train | 376 | 1076 | 13256 | 19061 | 20382 | 31054 | 25962 | 26057 |
+| Val | 78 | 228 | 2837 | 4081 | 4364 | 6604 | 5558 | 5578 |
+| Test | 85 | 235 | 2850 | 4094 | 4378 | 6694 | 5576 | 5598 |
+| Total images | 539 | 1539 | 18943 | 27236 | 29124 | 44352 | 37096 | 37232 |
+| Duree approx. | `~6 min` | `~12 min 40 s` | `~36 min 54 s` | `~46 min 12 s` | `~48 min 15 s` | `~1 h 37 min` | `~1 h 13 min` | `~1 h 49 min` |
+| Best Val Acc | `100.00%` | `99.56%` | `90.41%` | `90.27%` | `90.99%` | `89.22%` | `93.59%` | `93.98%` |
+| Test Acc | `97.65%` | `97.87%` | `89.40%` | `91.11%` | `90.66%` | `88.95%` | `93.79%` | `93.39%` |
+| `chardonneret_elegant` | `100.00%` | `100.00%` | `90.94%` | `90.19%` | `89.81%` | `89.18%` | `93.59%` | `92.87%` |
+| `grive_musicienne` | `X` | `X` | `92.89%` | `89.10%` | `88.15%` | `89.93%` | `92.32%` | `91.68%` |
+| `mesange_bleue` | `95.45%` | `86.36%` | `90.24%` | `83.62%` | `94.40%` | `86.83%` | `96.43%` | `95.92%` |
+| `mesange_charbonniere` | `100.00%` | `95.45%` | `86.05%` | `91.96%` | `92.68%` | `87.85%` | `93.24%` | `92.62%` |
+| `mesange_huppee` | `X` | `X` | `90.00%` | `92.56%` | `90.51%` | `85.05%` | `93.67%` | `93.88%` |
+| `mesange_noire` | `X` | `X` | `86.51%` | `92.87%` | `92.24%` | `87.39%` | `91.84%` | `92.89%` |
+| `mesange_nonnette` | `X` | `X` | `90.51%` | `90.51%` | `86.50%` | `87.77%` | `96.02%` | `95.55%` |
+| `moineau_domestique` | `95.24%` | `95.24%` | `84.85%` | `92.09%` | `89.93%` | `87.83%` | `90.28%` | `89.42%` |
+| `pic_epeiche` | `X` | `X` | `91.54%` | `92.31%` | `92.69%` | `93.69%` | `96.00%` | `94.80%` |
+| `pinson_des_arbres` | `X` | `X` | `84.00%` | `92.20%` | `90.54%` | `86.74%` | `91.43%` | `91.24%` |
+| `rougegorge_familier` | `X` | `100.00%` | `90.67%` | `90.00%` | `86.00%` | `94.23%` | `96.39%` | `95.78%` |
+| `sitelle_torchepot` | `X` | `X` | `X` | `X` | `X` | `X` | `X` | `86.36%` |
+| `verdier_europe` | `X` | `X` | `90.87%` | `90.87%` | `84.65%` | `91.04%` | `94.83%` | `94.83%` |
+| Commentaire | probleme simple | 5 classes | premier vrai multi-especes | meilleure ref avant tri fort | plus de donnees, gain non uniforme | plus gros dataset mais bruit fort | dataset nettoye, nouvelle meilleure ref | ajout de la sitelle, baisse globale legere |
 
 ## Changements par version
 
@@ -78,6 +79,13 @@ les versions.
 - split genere dans `data/dataset_v7`
 - sortie ecrite dans `outputs/training/convnext_small_v7`
 
+### `v8`
+
+- ajout de `sitelle_torchepot` comme 13e classe
+- premier dataset volontairement petit et propre pour la sitelle
+- split genere dans `data/dataset_v8`
+- sortie ecrite dans `outputs/training/convnext_small_v8`
+
 ## Focus sur le nettoyage ayant mene a `v7`
 
 Le dataset utilise pour `v7` n'est pas simplement une nouvelle collecte. Il
@@ -110,6 +118,13 @@ Comparaison directe :
 | `v7` vs `v5` | `+3.13 pts` |
 | `v7` vs `v6` | `+4.84 pts` |
 
+Pour `v8` :
+
+- l'ajout d'une 13e classe avec seulement `137` images pour la sitelle entraine
+  une baisse globale limitee par rapport a `v7`
+- `v8` reste tres performant globalement avec `93.39%` de test accuracy
+- la sitelle atteint deja `86.36%` sur son premier petit dataset
+
 ## Detail `v7`
 
 - classes :
@@ -136,6 +151,38 @@ Comparaison directe :
 - resultats :
   - `best_val_accuracy = 93.59%`
   - `test_accuracy = 93.79%`
+
+## Detail `v8`
+
+- classes :
+  - `chardonneret_elegant`
+  - `grive_musicienne`
+  - `mesange_bleue`
+  - `mesange_charbonniere`
+  - `mesange_huppee`
+  - `mesange_noire`
+  - `mesange_nonnette`
+  - `moineau_domestique`
+  - `pic_epeiche`
+  - `pinson_des_arbres`
+  - `rougegorge_familier`
+  - `sitelle_torchepot`
+  - `verdier_europe`
+- tailles :
+  - train : `26057`
+  - val : `5578`
+  - test : `5598`
+- taille specifique sitelle :
+  - train : `95`
+  - val : `20`
+  - test : `22`
+- duree cumulee des epoques :
+  - `5435.31 s`
+- duree pratique :
+  - environ `1 h 49 min`
+- resultats :
+  - `best_val_accuracy = 93.98%`
+  - `test_accuracy = 93.39%`
 
 ## Fichiers de sortie
 
@@ -164,6 +211,8 @@ Comparaison directe :
   - `outputs/training/convnext_small_v6/summary.json`
   - `outputs/training/convnext_small_v6/history.json`
 - `v7` :
-  - `outputs/training/convnext_small_v7/best_model.pt`
   - `outputs/training/convnext_small_v7/summary.json`
   - `outputs/training/convnext_small_v7/history.json`
+- `v8` :
+  - `outputs/training/convnext_small_v8/summary.json`
+  - `outputs/training/convnext_small_v8/history.json`

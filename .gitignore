@@ -27,7 +27,11 @@ data/dataset/**
 
 # Local model assets and training outputs
 models/
-outputs/
+outputs/*
+!outputs/training/
+outputs/training/*
+!outputs/training/**/
+!outputs/training/**/*.json
 *.pth
 *.pt
 *.onnx

@@ -1,0 +1,89 @@
+{
+  "model": "convnext_small",
+  "num_classes": 12,
+  "class_names": [
+    "chardonneret_elegant",
+    "grive_musicienne",
+    "mesange_bleue",
+    "mesange_charbonniere",
+    "mesange_huppee",
+    "mesange_noire",
+    "mesange_nonnette",
+    "moineau_domestique",
+    "pic_epeiche",
+    "pinson_des_arbres",
+    "rougegorge_familier",
+    "verdier_europe"
+  ],
+  "device": "cuda",
+  "best_val_accuracy": 0.9359481827995682,
+  "test_loss": 0.27833281901039925,
+  "test_accuracy": 0.937948350071736,
+  "epochs": 12,
+  "batch_size": 16,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0001,
+  "freeze_backbone": false,
+  "per_class_test": {
+    "chardonneret_elegant": {
+      "correct": 394,
+      "total": 421,
+      "accuracy": 0.9358669833729216
+    },
+    "grive_musicienne": {
+      "correct": 433,
+      "total": 469,
+      "accuracy": 0.9232409381663113
+    },
+    "mesange_bleue": {
+      "correct": 378,
+      "total": 392,
+      "accuracy": 0.9642857142857143
+    },
+    "mesange_charbonniere": {
+      "correct": 455,
+      "total": 488,
+      "accuracy": 0.9323770491803278
+    },
+    "mesange_huppee": {
+      "correct": 444,
+      "total": 474,
+      "accuracy": 0.9367088607594937
+    },
+    "mesange_noire": {
+      "correct": 439,
+      "total": 478,
+      "accuracy": 0.9184100418410042
+    },
+    "mesange_nonnette": {
+      "correct": 410,
+      "total": 427,
+      "accuracy": 0.9601873536299765
+    },
+    "moineau_domestique": {
+      "correct": 418,
+      "total": 463,
+      "accuracy": 0.9028077753779697
+    },
+    "pic_epeiche": {
+      "correct": 480,
+      "total": 500,
+      "accuracy": 0.96
+    },
+    "pinson_des_arbres": {
+      "correct": 459,
+      "total": 502,
+      "accuracy": 0.9143426294820717
+    },
+    "rougegorge_familier": {
+      "correct": 480,
+      "total": 498,
+      "accuracy": 0.963855421686747
+    },
+    "verdier_europe": {
+      "correct": 440,
+      "total": 464,
+      "accuracy": 0.9482758620689655
+    }
+  }
+}
