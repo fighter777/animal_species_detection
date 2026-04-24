@@ -2,37 +2,37 @@
 
 ## Vue d'ensemble
 
-Ce document consolide les entrainements `ConvNeXt-Small` realises sur le projet,
-avec les tailles de datasets, les durees et les evolutions de nettoyage entre
-les versions.
+Ce document consolide les entrainements `ConvNeXt` realises sur le projet, avec
+les tailles de datasets, les durees et les evolutions de nettoyage entre les
+versions.
 
 ## Tableau comparatif
 
-| Metrique | `v1` | `v2` | `v3` | `v4` | `v5` | `v6` | `v7` | `v8` | `v9` | `v10` |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Classes | 4 | 5 | 12 | 12 | 12 | 12 | 12 | 13 | 13 | 14 |
-| Train | 376 | 1076 | 13256 | 19061 | 20382 | 31054 | 25962 | 26057 | 26230 | 26543 |
-| Val | 78 | 228 | 2837 | 4081 | 4364 | 6604 | 5558 | 5578 | 5615 | 5682 |
-| Test | 85 | 235 | 2850 | 4094 | 4378 | 6694 | 5576 | 5598 | 5635 | 5703 |
-| Total images | 539 | 1539 | 18943 | 27236 | 29124 | 44352 | 37096 | 37232 | 37480 | 37928 |
-| Duree approx. | `~6 min` | `~12 min 40 s` | `~36 min 54 s` | `~46 min 12 s` | `~48 min 15 s` | `~1 h 37 min` | `~1 h 13 min` | `~1 h 49 min` | `~5 h 02 min` | `~1 h 22 min` |
-| Best Val Acc | `100.00%` | `99.56%` | `90.41%` | `90.27%` | `90.99%` | `89.22%` | `93.59%` | `93.98%` | `93.98%` | `93.52%` |
-| Test Acc | `97.65%` | `97.87%` | `89.40%` | `91.11%` | `90.66%` | `88.95%` | `93.79%` | `93.39%` | `94.02%` | `93.72%` |
-| `autre_oiseau` | `X` | `X` | `X` | `X` | `X` | `X` | `X` | `X` | `X` | `82.35%` |
-| `chardonneret_elegant` | `100.00%` | `100.00%` | `90.94%` | `90.19%` | `89.81%` | `89.18%` | `93.59%` | `92.87%` | `94.77%` | `94.06%` |
-| `grive_musicienne` | `X` | `X` | `92.89%` | `89.10%` | `88.15%` | `89.93%` | `92.32%` | `91.68%` | `92.54%` | `94.03%` |
-| `mesange_bleue` | `95.45%` | `86.36%` | `90.24%` | `83.62%` | `94.40%` | `86.83%` | `96.43%` | `95.92%` | `96.17%` | `95.41%` |
-| `mesange_charbonniere` | `100.00%` | `95.45%` | `86.05%` | `91.96%` | `92.68%` | `87.85%` | `93.24%` | `92.62%` | `93.44%` | `94.26%` |
-| `mesange_huppee` | `X` | `X` | `90.00%` | `92.56%` | `90.51%` | `85.05%` | `93.67%` | `93.88%` | `92.41%` | `94.51%` |
-| `mesange_noire` | `X` | `X` | `86.51%` | `92.87%` | `92.24%` | `87.39%` | `91.84%` | `92.89%` | `93.31%` | `93.51%` |
-| `mesange_nonnette` | `X` | `X` | `90.51%` | `90.51%` | `86.50%` | `87.77%` | `96.02%` | `95.55%` | `94.15%` | `93.44%` |
-| `moineau_domestique` | `95.24%` | `95.24%` | `84.85%` | `92.09%` | `89.93%` | `87.83%` | `90.28%` | `89.42%` | `90.71%` | `91.58%` |
-| `pic_epeiche` | `X` | `X` | `91.54%` | `92.31%` | `92.69%` | `93.69%` | `96.00%` | `94.80%` | `95.20%` | `95.80%` |
-| `pinson_des_arbres` | `X` | `X` | `84.00%` | `92.20%` | `90.54%` | `86.74%` | `91.43%` | `91.24%` | `93.23%` | `91.24%` |
-| `rougegorge_familier` | `X` | `100.00%` | `90.67%` | `90.00%` | `86.00%` | `94.23%` | `96.39%` | `95.78%` | `97.19%` | `94.58%` |
-| `sitelle_torchepot` | `X` | `X` | `X` | `X` | `X` | `X` | `X` | `86.36%` | `93.22%` | `91.53%` |
-| `verdier_europe` | `X` | `X` | `90.87%` | `90.87%` | `84.65%` | `91.04%` | `94.83%` | `94.83%` | `95.47%` | `94.40%` |
-| Commentaire | probleme simple | 5 classes | premier vrai multi-especes | meilleure ref avant tri fort | plus de donnees, gain non uniforme | plus gros dataset mais bruit fort | dataset nettoye, nouvelle meilleure ref | ajout de la sitelle, baisse globale legere | sitelle renforcee, meilleure accuracy globale | ajout de `autre_oiseau`, baisse globale limitee |
+| Metrique | `v1` | `v2` | `v3` | `v4` | `v5` | `v6` | `v7` | `v8` | `v9` | `v10` | `v10-base` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Classes | 4 | 5 | 12 | 12 | 12 | 12 | 12 | 13 | 13 | 14 | 14 |
+| Train | 376 | 1076 | 13256 | 19061 | 20382 | 31054 | 25962 | 26057 | 26230 | 26543 | 26543 |
+| Val | 78 | 228 | 2837 | 4081 | 4364 | 6604 | 5558 | 5578 | 5615 | 5682 | 5682 |
+| Test | 85 | 235 | 2850 | 4094 | 4378 | 6694 | 5576 | 5598 | 5635 | 5703 | 5703 |
+| Total images | 539 | 1539 | 18943 | 27236 | 29124 | 44352 | 37096 | 37232 | 37480 | 37928 | 37928 |
+| Duree approx. | `~6 min` | `~12 min 40 s` | `~36 min 54 s` | `~46 min 12 s` | `~48 min 15 s` | `~1 h 37 min` | `~1 h 13 min` | `~1 h 49 min` | `~5 h 02 min` | `~1 h 22 min` | `~1 h 18 min` |
+| Best Val Acc | `100.00%` | `99.56%` | `90.41%` | `90.27%` | `90.99%` | `89.22%` | `93.59%` | `93.98%` | `93.98%` | `93.52%` | `93.77%` |
+| Test Acc | `97.65%` | `97.87%` | `89.40%` | `91.11%` | `90.66%` | `88.95%` | `93.79%` | `93.39%` | `94.02%` | `93.72%` | `94.11%` |
+| `autre_oiseau` | `X` | `X` | `X` | `X` | `X` | `X` | `X` | `X` | `X` | `82.35%` | `86.76%` |
+| `chardonneret_elegant` | `100.00%` | `100.00%` | `90.94%` | `90.19%` | `89.81%` | `89.18%` | `93.59%` | `92.87%` | `94.77%` | `94.06%` | `95.72%` |
+| `grive_musicienne` | `X` | `X` | `92.89%` | `89.10%` | `88.15%` | `89.93%` | `92.32%` | `91.68%` | `92.54%` | `94.03%` | `94.46%` |
+| `mesange_bleue` | `95.45%` | `86.36%` | `90.24%` | `83.62%` | `94.40%` | `86.83%` | `96.43%` | `95.92%` | `96.17%` | `95.41%` | `95.92%` |
+| `mesange_charbonniere` | `100.00%` | `95.45%` | `86.05%` | `91.96%` | `92.68%` | `87.85%` | `93.24%` | `92.62%` | `93.44%` | `94.26%` | `92.42%` |
+| `mesange_huppee` | `X` | `X` | `90.00%` | `92.56%` | `90.51%` | `85.05%` | `93.67%` | `93.88%` | `92.41%` | `94.51%` | `94.51%` |
+| `mesange_noire` | `X` | `X` | `86.51%` | `92.87%` | `92.24%` | `87.39%` | `91.84%` | `92.89%` | `93.31%` | `93.51%` | `92.89%` |
+| `mesange_nonnette` | `X` | `X` | `90.51%` | `90.51%` | `86.50%` | `87.77%` | `96.02%` | `95.55%` | `94.15%` | `93.44%` | `93.21%` |
+| `moineau_domestique` | `95.24%` | `95.24%` | `84.85%` | `92.09%` | `89.93%` | `87.83%` | `90.28%` | `89.42%` | `90.71%` | `91.58%` | `92.66%` |
+| `pic_epeiche` | `X` | `X` | `91.54%` | `92.31%` | `92.69%` | `93.69%` | `96.00%` | `94.80%` | `95.20%` | `95.80%` | `97.20%` |
+| `pinson_des_arbres` | `X` | `X` | `84.00%` | `92.20%` | `90.54%` | `86.74%` | `91.43%` | `91.24%` | `93.23%` | `91.24%` | `91.04%` |
+| `rougegorge_familier` | `X` | `100.00%` | `90.67%` | `90.00%` | `86.00%` | `94.23%` | `96.39%` | `95.78%` | `97.19%` | `94.58%` | `95.58%` |
+| `sitelle_torchepot` | `X` | `X` | `X` | `X` | `X` | `X` | `X` | `86.36%` | `93.22%` | `91.53%` | `89.83%` |
+| `verdier_europe` | `X` | `X` | `90.87%` | `90.87%` | `84.65%` | `91.04%` | `94.83%` | `94.83%` | `95.47%` | `94.40%` | `95.69%` |
+| Commentaire | probleme simple | 5 classes | premier vrai multi-especes | meilleure ref avant tri fort | plus de donnees, gain non uniforme | plus gros dataset mais bruit fort | dataset nettoye, nouvelle meilleure ref | ajout de la sitelle, baisse globale legere | sitelle renforcee, meilleure accuracy globale | ajout de `autre_oiseau`, baisse globale limitee | meme dataset que `v10`, backbone `base` |
 
 ## Changements par version
 
@@ -101,6 +101,13 @@ les versions.
 - sortie ecrite dans `outputs/training/convnext_small_v10`
 - premiere tentative de classe hors especes cibles sans MegaDetector en runtime
 
+### `v10-base`
+
+- meme dataset et meme split que `v10`
+- backbone `ConvNeXt-Base` au lieu de `ConvNeXt-Small`
+- sortie ecrite dans `outputs/training/convnext_base_v10`
+- run de comparaison directe a iso-donnees
+
 ## Focus sur le nettoyage ayant mene a `v7`
 
 Le dataset utilise pour `v7` n'est pas simplement une nouvelle collecte. Il
@@ -151,6 +158,13 @@ Pour `v10` :
 - l'ajout de `autre_oiseau` fait baisser legerement le score global a `93.72%`
 - la nouvelle classe atteint `82.35%` sur son premier jeu de test
 - `v10` reste solide tout en preparant un pipeline sans detection lourde
+
+Pour `v10-base` :
+
+- le gain global est modere mais reel par rapport a `v10`
+- `test_accuracy` passe de `93.72%` a `94.11%`
+- `autre_oiseau` progresse de `82.35%` a `86.76%`
+- le gain n'est pas uniforme selon les especes
 
 ## Detail `v7`
 
@@ -276,6 +290,39 @@ Pour `v10` :
   - `best_val_accuracy = 93.52%`
   - `test_accuracy = 93.72%`
 
+## Detail `v10-base`
+
+- classes :
+  - `autre_oiseau`
+  - `chardonneret_elegant`
+  - `grive_musicienne`
+  - `mesange_bleue`
+  - `mesange_charbonniere`
+  - `mesange_huppee`
+  - `mesange_noire`
+  - `mesange_nonnette`
+  - `moineau_domestique`
+  - `pic_epeiche`
+  - `pinson_des_arbres`
+  - `rougegorge_familier`
+  - `sitelle_torchepot`
+  - `verdier_europe`
+- tailles :
+  - train : `26543`
+  - val : `5682`
+  - test : `5703`
+- taille specifique `autre_oiseau` :
+  - train : `313`
+  - val : `67`
+  - test : `68`
+- duree cumulee des epoques :
+  - `4688.21 s`
+- duree pratique :
+  - environ `1 h 18 min`
+- resultats :
+  - `best_val_accuracy = 93.77%`
+  - `test_accuracy = 94.11%`
+
 ## Fichiers de sortie
 
 - `v1` :
@@ -315,3 +362,7 @@ Pour `v10` :
   - `outputs/training/convnext_small_v10/best_model.pt`
   - `outputs/training/convnext_small_v10/summary.json`
   - `outputs/training/convnext_small_v10/history.json`
+- `v10-base` :
+  - `outputs/training/convnext_base_v10/best_model.pt`
+  - `outputs/training/convnext_base_v10/summary.json`
+  - `outputs/training/convnext_base_v10/history.json`
