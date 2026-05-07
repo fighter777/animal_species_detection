@@ -1,0 +1,101 @@
+{
+  "model": "convnext_small",
+  "num_classes": 14,
+  "class_names": [
+    "autre_oiseau",
+    "chardonneret_elegant",
+    "grive_musicienne",
+    "mesange_bleue",
+    "mesange_charbonniere",
+    "mesange_huppee",
+    "mesange_noire",
+    "mesange_nonnette",
+    "moineau_domestique",
+    "pic_epeiche",
+    "pinson_des_arbres",
+    "rougegorge_familier",
+    "sitelle_torchepot",
+    "verdier_europe"
+  ],
+  "device": "cuda",
+  "best_val_accuracy": 0.9352340725096797,
+  "test_loss": 0.2935702253623573,
+  "test_accuracy": 0.9372260213922496,
+  "epochs": 12,
+  "batch_size": 16,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0001,
+  "freeze_backbone": false,
+  "per_class_test": {
+    "autre_oiseau": {
+      "correct": 56,
+      "total": 68,
+      "accuracy": 0.8235294117647058
+    },
+    "chardonneret_elegant": {
+      "correct": 396,
+      "total": 421,
+      "accuracy": 0.9406175771971497
+    },
+    "grive_musicienne": {
+      "correct": 441,
+      "total": 469,
+      "accuracy": 0.9402985074626866
+    },
+    "mesange_bleue": {
+      "correct": 374,
+      "total": 392,
+      "accuracy": 0.9540816326530612
+    },
+    "mesange_charbonniere": {
+      "correct": 460,
+      "total": 488,
+      "accuracy": 0.9426229508196722
+    },
+    "mesange_huppee": {
+      "correct": 448,
+      "total": 474,
+      "accuracy": 0.9451476793248945
+    },
+    "mesange_noire": {
+      "correct": 447,
+      "total": 478,
+      "accuracy": 0.9351464435146444
+    },
+    "mesange_nonnette": {
+      "correct": 399,
+      "total": 427,
+      "accuracy": 0.9344262295081968
+    },
+    "moineau_domestique": {
+      "correct": 424,
+      "total": 463,
+      "accuracy": 0.9157667386609071
+    },
+    "pic_epeiche": {
+      "correct": 479,
+      "total": 500,
+      "accuracy": 0.958
+    },
+    "pinson_des_arbres": {
+      "correct": 458,
+      "total": 502,
+      "accuracy": 0.9123505976095617
+    },
+    "rougegorge_familier": {
+      "correct": 471,
+      "total": 498,
+      "accuracy": 0.9457831325301205
+    },
+    "sitelle_torchepot": {
+      "correct": 54,
+      "total": 59,
+      "accuracy": 0.9152542372881356
+    },
+    "verdier_europe": {
+      "correct": 438,
+      "total": 464,
+      "accuracy": 0.9439655172413793
+    }
+  }
+}
