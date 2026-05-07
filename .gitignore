@@ -1,0 +1,49 @@
+# Virtual environments
+.venv/
+.venv-birdnet-py312/
+.venv-speciesnet-py312/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Notebook cache
+.ipynb_checkpoints/
+
+# Local datasets and generated splits
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/dataset_v*/
+data/dataset/**
+!data/dataset/
+!data/dataset/train/
+!data/dataset/train/**/
+!data/dataset/**/*.gitkeep
+!data/dataset/**/*.dm
+
+# Local model assets and training outputs
+models/
+outputs/
+*.pth
+*.pt
+*.onnx
+
+# Large media files
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# Local tools / caches
+tools/tmp/
+tools/pip-cache/
+tools/wheelhouse/
+tools/*.exe
+
+# OS / editor noise
+.DS_Store
+Thumbs.db

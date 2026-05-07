@@ -1,0 +1,1 @@
+"""Animal species detection MVP."""

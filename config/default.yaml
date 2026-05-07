@@ -1,0 +1,21 @@
+detector:
+  backend: megadetector
+  min_confidence: 0.35
+  device: cpu
+  version: a
+
+classifier:
+  backend: convnext_checkpoint
+  checkpoint_path: ./outputs/training/convnext_small_v5/best_model.pt
+  top_k: 5
+  min_confidence: 0.20
+
+inference:
+  frame_stride: 10
+  save_captures: true
+  display: true
+
+paths:
+  output_dir: ./outputs/runs
+  capture_dir: ./outputs/captures
+  csv_name: predictions.csv
