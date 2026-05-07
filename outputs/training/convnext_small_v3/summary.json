@@ -1,0 +1,89 @@
+{
+  "model": "convnext_small",
+  "num_classes": 12,
+  "class_names": [
+    "chardonneret_elegant",
+    "grive_musicienne",
+    "mesange_bleue",
+    "mesange_charbonniere",
+    "mesange_huppee",
+    "mesange_noire",
+    "mesange_nonnette",
+    "moineau_domestique",
+    "pic_epeiche",
+    "pinson_des_arbres",
+    "rougegorge_familier",
+    "verdier_europe"
+  ],
+  "device": "cuda",
+  "best_val_accuracy": 0.9041240747268241,
+  "test_loss": 0.4540346739647232,
+  "test_accuracy": 0.8940350877192983,
+  "epochs": 10,
+  "batch_size": 16,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0001,
+  "freeze_backbone": false,
+  "per_class_test": {
+    "chardonneret_elegant": {
+      "correct": 241,
+      "total": 265,
+      "accuracy": 0.909433962264151
+    },
+    "grive_musicienne": {
+      "correct": 196,
+      "total": 211,
+      "accuracy": 0.9289099526066351
+    },
+    "mesange_bleue": {
+      "correct": 259,
+      "total": 287,
+      "accuracy": 0.9024390243902439
+    },
+    "mesange_charbonniere": {
+      "correct": 148,
+      "total": 172,
+      "accuracy": 0.8604651162790697
+    },
+    "mesange_huppee": {
+      "correct": 351,
+      "total": 390,
+      "accuracy": 0.9
+    },
+    "mesange_noire": {
+      "correct": 218,
+      "total": 252,
+      "accuracy": 0.8650793650793651
+    },
+    "mesange_nonnette": {
+      "correct": 248,
+      "total": 274,
+      "accuracy": 0.9051094890510949
+    },
+    "moineau_domestique": {
+      "correct": 168,
+      "total": 198,
+      "accuracy": 0.8484848484848485
+    },
+    "pic_epeiche": {
+      "correct": 238,
+      "total": 260,
+      "accuracy": 0.9153846153846154
+    },
+    "pinson_des_arbres": {
+      "correct": 126,
+      "total": 150,
+      "accuracy": 0.84
+    },
+    "rougegorge_familier": {
+      "correct": 136,
+      "total": 150,
+      "accuracy": 0.9066666666666666
+    },
+    "verdier_europe": {
+      "correct": 219,
+      "total": 241,
+      "accuracy": 0.9087136929460581
+    }
+  }
+}

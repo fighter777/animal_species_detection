@@ -1,0 +1,89 @@
+{
+  "model": "convnext_small",
+  "num_classes": 12,
+  "class_names": [
+    "chardonneret_elegant",
+    "grive_musicienne",
+    "mesange_bleue",
+    "mesange_charbonniere",
+    "mesange_huppee",
+    "mesange_noire",
+    "mesange_nonnette",
+    "moineau_domestique",
+    "pic_epeiche",
+    "pinson_des_arbres",
+    "rougegorge_familier",
+    "verdier_europe"
+  ],
+  "device": "cuda",
+  "best_val_accuracy": 0.89223690069764,
+  "test_loss": 0.4622532300811871,
+  "test_accuracy": 0.889465105941621,
+  "epochs": 10,
+  "batch_size": 16,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0001,
+  "freeze_backbone": false,
+  "per_class_test": {
+    "chardonneret_elegant": {
+      "correct": 511,
+      "total": 573,
+      "accuracy": 0.8917975567190227
+    },
+    "grive_musicienne": {
+      "correct": 500,
+      "total": 556,
+      "accuracy": 0.8992805755395683
+    },
+    "mesange_bleue": {
+      "correct": 501,
+      "total": 577,
+      "accuracy": 0.8682842287694974
+    },
+    "mesange_charbonniere": {
+      "correct": 506,
+      "total": 576,
+      "accuracy": 0.8784722222222222
+    },
+    "mesange_huppee": {
+      "correct": 472,
+      "total": 555,
+      "accuracy": 0.8504504504504504
+    },
+    "mesange_noire": {
+      "correct": 485,
+      "total": 555,
+      "accuracy": 0.8738738738738738
+    },
+    "mesange_nonnette": {
+      "correct": 488,
+      "total": 556,
+      "accuracy": 0.8776978417266187
+    },
+    "moineau_domestique": {
+      "correct": 505,
+      "total": 575,
+      "accuracy": 0.8782608695652174
+    },
+    "pic_epeiche": {
+      "correct": 520,
+      "total": 555,
+      "accuracy": 0.9369369369369369
+    },
+    "pinson_des_arbres": {
+      "correct": 484,
+      "total": 558,
+      "accuracy": 0.8673835125448028
+    },
+    "rougegorge_familier": {
+      "correct": 523,
+      "total": 555,
+      "accuracy": 0.9423423423423424
+    },
+    "verdier_europe": {
+      "correct": 508,
+      "total": 558,
+      "accuracy": 0.910394265232975
+    }
+  }
+}

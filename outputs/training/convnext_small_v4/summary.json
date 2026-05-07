@@ -1,0 +1,89 @@
+{
+  "model": "convnext_small",
+  "num_classes": 12,
+  "class_names": [
+    "chardonneret_elegant",
+    "grive_musicienne",
+    "mesange_bleue",
+    "mesange_charbonniere",
+    "mesange_huppee",
+    "mesange_noire",
+    "mesange_nonnette",
+    "moineau_domestique",
+    "pic_epeiche",
+    "pinson_des_arbres",
+    "rougegorge_familier",
+    "verdier_europe"
+  ],
+  "device": "cuda",
+  "best_val_accuracy": 0.9027199215878461,
+  "test_loss": 0.4063429682941157,
+  "test_accuracy": 0.9110893991206643,
+  "epochs": 10,
+  "batch_size": 16,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0001,
+  "freeze_backbone": false,
+  "per_class_test": {
+    "chardonneret_elegant": {
+      "correct": 239,
+      "total": 265,
+      "accuracy": 0.9018867924528302
+    },
+    "grive_musicienne": {
+      "correct": 188,
+      "total": 211,
+      "accuracy": 0.8909952606635071
+    },
+    "mesange_bleue": {
+      "correct": 240,
+      "total": 287,
+      "accuracy": 0.8362369337979094
+    },
+    "mesange_charbonniere": {
+      "correct": 515,
+      "total": 560,
+      "accuracy": 0.9196428571428571
+    },
+    "mesange_huppee": {
+      "correct": 361,
+      "total": 390,
+      "accuracy": 0.9256410256410257
+    },
+    "mesange_noire": {
+      "correct": 443,
+      "total": 477,
+      "accuracy": 0.9287211740041929
+    },
+    "mesange_nonnette": {
+      "correct": 248,
+      "total": 274,
+      "accuracy": 0.9051094890510949
+    },
+    "moineau_domestique": {
+      "correct": 512,
+      "total": 556,
+      "accuracy": 0.920863309352518
+    },
+    "pic_epeiche": {
+      "correct": 240,
+      "total": 260,
+      "accuracy": 0.9230769230769231
+    },
+    "pinson_des_arbres": {
+      "correct": 390,
+      "total": 423,
+      "accuracy": 0.9219858156028369
+    },
+    "rougegorge_familier": {
+      "correct": 135,
+      "total": 150,
+      "accuracy": 0.9
+    },
+    "verdier_europe": {
+      "correct": 219,
+      "total": 241,
+      "accuracy": 0.9087136929460581
+    }
+  }
+}
